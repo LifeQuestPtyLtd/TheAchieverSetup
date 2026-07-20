@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"The Achiever" by LifeQuest — Setup Guide</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: #141414;
+    color: #E0E0E0;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 60px 48px;
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  .header {
+    border-bottom: 2px solid #5A4820;
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+  }
+  .brand {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #9A7230;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #D4A017;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .tagline {
+    font-size: 15px;
+    color: #A0A0A0;
+    font-style: italic;
+  }
+
+  /* ── Welcome block ── */
+  .welcome {
+    background: #1C1C1C;
+    border-left: 3px solid #D4A017;
+    padding: 20px 24px;
+    border-radius: 4px;
+    margin-bottom: 40px;
+    font-size: 15px;
+    color: #C8C8C8;
+  }
+
+  /* ── Steps ── */
+  .step {
+    margin-bottom: 40px;
+  }
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .step-number {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #141414;
+    background: #D4A017;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #E8E8E8;
+  }
+  p {
+    font-size: 14px;
+    color: #C0C0C0;
+    margin-bottom: 12px;
+  }
+  .step p:last-child { margin-bottom: 0; }
+
+  /* ── Instruction list ── */
+  ol, ul {
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+  li {
+    font-size: 14px;
+    color: #C0C0C0;
+    margin-bottom: 8px;
+    padding-left: 4px;
+  }
+  li::marker { color: #D4A017; }
+
+  /* ── Code / key terms ── */
+  code {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    background: #242424;
+    color: #D4A017;
+    padding: 2px 7px;
+    border-radius: 3px;
+    border: 1px solid #303030;
+  }
+
+  /* ── Trigger table ── */
+  .trigger-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 4px;
+    font-size: 13px;
+  }
+  .trigger-table th {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #707070;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid #303030;
+  }
+  .trigger-table td {
+    padding: 10px 12px;
+    color: #C0C0C0;
+    border-bottom: 1px solid #1E1E1E;
+    vertical-align: top;
+  }
+  .trigger-table tr:last-child td { border-bottom: none; }
+  .trigger-table td:first-child { color: #A0A0A0; font-size: 11px; font-family: 'Arial', sans-serif; letter-spacing: 1px; }
+  .trigger-table td code { font-size: 12px; }
+
+  /* ── Divider ── */
+  .divider {
+    height: 1px;
+    background: #242424;
+    margin: 36px 0;
+  }
+
+  /* ── Info box ── */
+  .info-box {
+    background: #1C1C1C;
+    border: 1px solid #303030;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-top: 12px;
+  }
+  .info-box p { margin-bottom: 0; color: #A0A0A0; font-size: 13px; }
+  .info-box strong { color: #D4A017; }
+
+  /* ── What you get block ── */
+  .features {
+    background: #1C1C1C;
+    border-radius: 6px;
+    padding: 24px;
+    margin-top: 16px;
+  }
+  .feature-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+  .feature-row:last-child { margin-bottom: 0; }
+  .feature-icon {
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .feature-text {
+    font-size: 14px;
+    color: #C0C0C0;
+  }
+  .feature-text strong { color: #E8E8E8; font-family: 'Arial', sans-serif; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #242424;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-brand {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #D4A017;
+  }
+  .footer-contact {
+    font-size: 12px;
+    color: #707070;
+  }
+  .footer-contact a { color: #9A7230; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="brand">LifeQuest — Digital Products</div>
+  <h1>"The Achiever" by LifeQuest</h1>
+  <div class="tagline">Setup Guide — you're 5 minutes from a fully automated year.</div>
+</div>
+
+<!-- Welcome -->
+<div class="welcome">
+  Welcome. "The Achiever" is a dark-themed goal and habit tracking system built in Google Sheets by LifeQuest, complete with automated daily emails, a live XP and tied ranking system, and a 12-month habit tracker. Follow the simple steps below to set it up in your Google account.
+</div>
+
+<!-- Access link -->
+<div style="background:#1C1C1C;border:2px solid #5A4820;border-radius:6px;padding:24px;margin-bottom:28px;text-align:center;">
+  <div style="font-family:'Arial',sans-serif;font-size:11px;letter-spacing:2px;color:#9A7230;margin-bottom:10px;">YOUR PRODUCT IS READY</div>
+  <div style="font-size:16px;color:#E8E8E8;font-weight:700;margin-bottom:8px;">Click below to open The Achiever in Google Sheets</div>
+  <div style="font-size:13px;color:#A0A0A0;margin-bottom:18px;">You'll be taken to the spreadsheet in read-only view. From there, follow Step 1 below to save your own copy to Google Drive.</div>
+  <a href="https://docs.google.com/spreadsheets/d/1gl1eIg74eD6N477uFhoB3JTf-AQdy6eus0wlJkZwhu0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style="font-family:'Arial',sans-serif;font-size:15px;font-weight:700;color:#141414;background:#D4A017;text-decoration:none;padding:12px 32px;border-radius:4px;display:inline-block;">🔗 &nbsp;Access The Achiever</a>
+</div>
+
+
+
+
+
+<div class="step">
+  <div class="step-header">
+    <div class="step-number">1</div>
+    <h2>Make Your Copy</h2>
+  </div>
+  <p>Click the link you received after purchase. You'll see the spreadsheet open in read-only view.</p>
+  <ol>
+    <li>Go to <strong>File → Make a copy</strong></li>
+    <li>Name it whatever you like (e.g. <em>"The Achiever" Goal Tracker 2026</em>)</li>
+    <li>Choose where to save it in your Google Drive</li>
+    <li>Click <strong>OK</strong></li>
+  </ol>
+  <p>You now have your own personal copy. It lives in your Google Drive and is entirely yours.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- Step 2 -->
+<div class="step">
+  <div class="step-header">
+    <div class="step-number">2</div>
+    <h2>Configure Your Email</h2>
+  </div>
+  <p>LifeQuest sends you a motivational email every morning and a personalised summary every evening. First-time setup takes about 30 seconds.</p>
+  <ol>
+    <li>In your copy, go to <strong>Extensions → Apps Script</strong></li>
+    <li>In the function dropdown at the top, select <code>setupEmailConfig</code></li>
+    <li>Click the <strong>Run</strong> button ▶</li>
+    <li>Google will ask you to authorise the script — click <strong>Review Permissions</strong>, choose your Google account, and click <strong>Allow</strong></li>
+    <li>A popup will confirm your email config has been created</li>
+  </ol>
+  <div class="info-box">
+    <p>Your email address is filled in <strong>automatically</strong> from your Google account. To change your name (used in the emails), go to <strong>View → Hidden Sheets → Show _CONFIG_</strong>, edit the <strong>Your Name</strong> cell, then hide the sheet again.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Step 3 (was Step 4) -->
+<div class="step">
+  <div class="step-header">
+    <div class="step-number">3</div>
+    <h2>Fill In Your Goals</h2>
+  </div>
+  <p>Open the <strong>GOALS</strong> tab. You have 10 goal slots. For each goal, fill in:</p>
+  <ul>
+    <li><strong>Goal</strong> — what you want to achieve this year</li>
+    <li><strong>Category</strong> — which area of life it belongs to</li>
+    <li><strong>Target / Current</strong> — your starting point and what you're aiming for</li>
+    <li><strong>Deadline</strong> — when you want to achieve it by</li>
+    <li><strong>Priority</strong> — 🔴 Critical earns 250 XP, 🟠 High 200 XP, 🟡 Medium 150 XP, 🟢 Low 100 XP</li>
+    <li><strong>Status</strong> — update this as you progress throughout the year</li>
+  </ul>
+</div>
+
+<div class="divider"></div>
+
+<!-- Step 5 -->
+<div class="step">
+  <div class="step-header">
+    <div class="step-number">4</div>
+    <h2>Set Up Your Habits</h2>
+  </div>
+  <p>Open any monthly tab (e.g. <strong>JAN</strong>) and fill in your 10 daily habits:</p>
+  <ul>
+    <li><strong>Habit</strong> — what you're tracking each day</li>
+    <li><strong>Linked Goal</strong> — which of your goals this habit supports (optional)</li>
+    <li><strong>Difficulty</strong> — determines your daily XP reward:</li>
+  </ul>
+  <div class="info-box">
+    <p>🟢 <strong>Easy → 1 XP</strong> &nbsp;·&nbsp; 🟡 <strong>Medium → 2 XP</strong> &nbsp;·&nbsp; 🔴 <strong>Hard → 3 XP</strong> &nbsp;·&nbsp; 🟣 <strong>Epic → 5 XP</strong></p>
+  </div>
+  <p style="margin-top:12px;">Tick the checkbox each day when you complete a habit. Your streak, XP, and rank all update automatically.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- Ranking System -->
+<div class="step">
+  <div class="step-header">
+    <div class="step-number">✦</div>
+    <h2>The Ranking System</h2>
+  </div>
+  <p>As you complete habits and achieve goals, you earn XP. Your rank on the Dashboard updates automatically as your XP grows. There are 6 ranks to progress through:</p>
+  <div class="features">
+    <div class="feature-row">
+      <div class="feature-icon">&nbsp;&nbsp;🍼</div>
+      <div class="feature-text"><strong>Novice</strong> — where every journey begins. 0 XP to start.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon">&nbsp;♟️</div>
+      <div class="feature-text"><strong>Apprentice</strong> — you're showing up consistently. Requires <strong>250 XP</strong>.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon">🔱</div>
+      <div class="feature-text"><strong>Prodigy</strong> — real momentum is building. Requires <strong>750 XP</strong>.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon">🏆</div>
+      <div class="feature-text"><strong>Champion</strong> — you're operating at a high level. Requires <strong>1,800 XP</strong>.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon">⚔️</div>
+      <div class="feature-text"><strong>Legend</strong> — sustained excellence over months. Requires <strong>3,500 XP</strong>.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon">👑</div>
+      <div class="feature-text"><strong>Master</strong> — the pinnacle. Reserved for those who commit fully to the year. Requires <strong>7,000 XP</strong>.</div>
+    </div>
+  </div>
+  <div class="info-box" style="margin-top:16px;">
+    <p>To reach <strong>Master</strong>, you'd need to consistently complete medium-to-epic difficulty habits daily across at least 6 months, and achieve several of your goals. It's designed to be genuinely earned — not handed out.</p>
+  </div>
+</div>
+
+
+<div class="step">
+  <div class="step-header">
+    <div class="step-number">✓</div>
+    <h2>You're Live. Here's What The Achiever Does For You.</h2>
+  </div>
+  <div class="features">
+    <div class="feature-row">
+      <div class="feature-icon">🌅</div>
+      <div class="feature-text"><strong>Morning email at 7am</strong> — your rank, XP, a rotating motivational quote, and a call to action for the day ahead.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon">🌙</div>
+      <div class="feature-text"><strong>Evening email at 8pm</strong> — a personalised summary of today's habits completed, with a tone that matches how you performed. From encouraging to ecstatic.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon">🔥</div>
+      <div class="feature-text"><strong>Live streak tracking</strong> — your current streak and personal best update the moment you tick a habit checkbox.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon">💎</div>
+      <div class="feature-text"><strong>XP and rank system</strong> — earn XP for completing habits and goals. Progress through 6 ranks from 🍼 Novice to 👑 Master.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon">📊</div>
+      <div class="feature-text"><strong>Live dashboard</strong> — see your goals, progress bars, completion stats, and year progress all in one place, updating in real time.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon">📅</div>
+      <div class="feature-text"><strong>Today's gold border</strong> — the current date is highlighted automatically across your habit sheet every day at midnight, no manual input needed.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">"The Achiever" by LifeQuest Pty Ltd</div>
+  <div class="footer-contact">Questions? <a href="mailto:contact@lifequest.com.au">contact@lifequest.com.au</a></div>
+</div>
+
+</body>
+</html>
